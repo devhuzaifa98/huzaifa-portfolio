@@ -1,97 +1,56 @@
-import Image from 'next/image'
-import Link from 'next/link'
-import { Suspense } from 'react'
-import Table from '@/components/table'
-import TablePlaceholder from '@/components/table-placeholder'
-import ExpandingArrow from '@/components/expanding-arrow'
-
-export const dynamic = 'force-dynamic'
+"use client";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (event: MouseEvent) => {
+      setCursorPosition({ x: event.clientX, y: event.clientY });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
   return (
-    <main className="relative flex min-h-screen flex-col items-center justify-center">
-      <Link
-        href="https://vercel.com/templates/next.js/postgres-prisma"
-        className="group mt-20 sm:mt-0 rounded-full flex space-x-1 bg-white/30 shadow-sm ring-1 ring-gray-900/5 text-gray-600 text-sm font-medium px-10 py-2 hover:shadow-lg active:shadow-sm transition-all"
-      >
-        <p>Deploy your own to Vercel</p>
-        <ExpandingArrow />
-      </Link>
-      <h1 className="pt-4 pb-8 bg-gradient-to-br from-black via-[#171717] to-[#575757] bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl">
-        Postgres on Vercel
-      </h1>
-      <Suspense fallback={<TablePlaceholder />}>
-        <Table />
-      </Suspense>
-      <p className="font-light text-gray-600 w-full max-w-lg text-center mt-6">
-        <Link
-          href="https://vercel.com/postgres"
-          className="font-medium underline underline-offset-4 hover:text-black transition-colors"
-        >
-          Vercel Postgres
-        </Link>{' '}
-        demo with{' '}
-        <Link
-          href="https://prisma.io"
-          className="font-medium underline underline-offset-4 hover:text-black transition-colors"
-        >
-          Prisma
-        </Link>{' '}
-        as the ORM. <br /> Built with{' '}
-        <Link
-          href="https://nextjs.org/docs"
-          className="font-medium underline underline-offset-4 hover:text-black transition-colors"
-        >
-          Next.js App Router
-        </Link>
-        .
-      </p>
-
-      <div className="flex justify-center space-x-5 pt-10 mt-10 border-t border-gray-300 w-full max-w-xl text-gray-600">
-        <Link
-          href="https://postgres-starter.vercel.app/"
-          className="font-medium underline underline-offset-4 hover:text-black transition-colors"
-        >
-          Starter
-        </Link>
-        <Link
-          href="https://postgres-kysely.vercel.app/"
-          className="font-medium underline underline-offset-4 hover:text-black transition-colors"
-        >
-          Kysely
-        </Link>
-        <Link
-          href="https://postgres-drizzle.vercel.app/"
-          className="font-medium underline underline-offset-4 hover:text-black transition-colors"
-        >
-          Drizzle
-        </Link>
+    <main className="min-h-screen flex flex-row">
+      <div
+        className="custom-cursor"
+        style={{ top: `${cursorPosition.y}px`, left: `${cursorPosition.x}px` }}
+      ></div>
+      <div className="flex-1">
+        <div className="h-screen border-[#545454] border-r w-14 flex justify-between flex-col py-20 text-[#545454] text-sm">
+          <h1 className="-rotate-90 whitespace-nowrap">LinkedIn</h1>
+          <h1 className="-rotate-90 whitespace-nowrap">Facebook</h1>
+          <h1 className="-rotate-90 whitespace-nowrap">Instagram</h1>
+          <h1 className="-rotate-90 mt-48 whitespace-nowrap tracking-wide">
+            Huzaifa Jalil @2024
+          </h1>
+        </div>
       </div>
-
-      <div className="sm:absolute sm:bottom-0 w-full px-20 py-10 flex justify-between">
-        <Link href="https://vercel.com">
-          <Image
-            src="/vercel.svg"
-            alt="Vercel Logo"
-            width={100}
-            height={24}
-            priority
-          />
-        </Link>
-        <Link
-          href="https://github.com/vercel/examples/tree/main/storage/postgres-prisma"
-          className="flex items-center space-x-2"
-        >
-          <Image
-            src="/github.svg"
-            alt="GitHub Logo"
-            width={24}
-            height={24}
-            priority
-          />
-          <p className="font-light">Source</p>
-        </Link>
+      <div className="flex flex-col w-full">
+        <div className="w-full h-full flex items-center justify-center flex-col space-y-2 text-white">
+          <h1 className="text-6xl tracking-widest">HUZAIFA JALIL</h1>
+          <h3 className="tracking-widest text-[#a3a3a3]">FRONTEND DEVELOPER</h3>
+        </div>
+        <footer className="flex justify-evenly items-center text-[#545454] text-sm border-t border-[#545454]">
+          <div className="flex-1 py-8 border-[#545454] border-r text-center text-white hover:bg-gradient-to-r from-red-500 to-pink-600">
+            CONTACT
+          </div>
+          <div className="flex-1 py-8 border-[#545454] border-r text-center text-white hover:bg-gradient-to-r from-red-500 to-pink-600">
+            SKILLS
+          </div>
+          <div className="flex-1 py-8 border-[#545454] border-r text-center text-white hover:bg-gradient-to-r from-red-500 to-pink-600">
+            RESUME
+          </div>
+          <div className="flex-1 py-8 text-center text-white bg-gradient-to-r from-red-500 to-pink-600">
+            ALL WORKS
+          </div>
+        </footer>
       </div>
     </main>
-  )
+  );
 }
