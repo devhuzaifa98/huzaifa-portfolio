@@ -1,0 +1,19 @@
+<svg id="visual" viewBox="0 0 900 900" width="900" height="900" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+  <defs>
+    <linearGradient id="gradient" gradientTransform="rotate(0)">
+      <stop offset="0%" stop-color="#FF0066" />
+      <stop offset="100%" stop-color="#6600FF" />
+    </linearGradient>
+  </defs>
+  <path d="M0 258L30 268.3C60 278.7 120 297.3 180 299C240 300.7 300 277.3 360 262.8C420 248.3 480 241.7 540 254.3C600 266.7 660 297.7 720 301.3C780 304.7 840 281.3 870 269.2L900 257" fill="none" stroke="url(#gradient)" stroke-width="40" stroke-linecap="round" stroke-linejoin="miter"/>
+  <path d="M0 166L30 176.3C60 186.7 120 205.3 180 207C240 208.7 300 185.3 360 170.8C420 156.3 480 149.7 540 162.3C600 174.7 660 205.7 720 209.3C780 212.7 840 189.3 870 177.2L900 165" fill="none" stroke="url(#gradient)" stroke-width="40" stroke-linecap="round" stroke-linejoin="miter"/>
+  <path d="M0 74L30 84.3C60 94.7 120 113.3 180 115C240 116.7 300 93.3 360 78.8C420 64.3 480 57.7 540 70.3C600 82.7 660 113.7 720 117.3C780 120.7 840 97.3 870 85.2L900 73" fill="none" stroke="url(#gradient)" stroke-width="40" stroke-linecap="round" stroke-linejoin="miter"/>
+  <path d="M0 358L30 368.3C60 378.7 120 397.3 180 399C240 400.7 300 377.3 360 362.8C420 348.3 480 341.7 540 354.3C600 366.7 660 397.7 720 401.3C780 404.7 840 381.3 870 369.2L900 357" fill="none" stroke="url(#gradient)" stroke-width="40" stroke-linecap="round" stroke-linejoin="miter"/>
+  <path d="M0 450L30 460.3C60 470.7 120 489.3 180 491C240 492.7 300 469.3 360 454.8C420 440.3 480 433.7 540 446.3C600 458.7 660 489.7 720 493.3C780 496.7 840 473.3 870 461.2L900 449" fill="none" stroke="url(#gradient)" stroke-width="40" stroke-linecap="round" stroke-linejoin="miter"/>
+  <path d="M0 542L30 552.3C60 562.7 120 581.3 180 583C240 584.7 300 561.3 360 546.8C420 532.3 480 525.7 540 538.3C600 550.7 660 581.7 720 585.3C780 588.7 840 565.3 870 553.2L900 541" fill="none" stroke="url(#gradient)" stroke-width="40" stroke-linecap="round" stroke-linejoin="miter"/>
+<path d="M0 634L30 644.3C60 654.7 120 673.3 180 675C240 676.7 300 653.3 360 638.8C420 624.3 480 617.7 540 630.3C600 642.7 660 673.7 720 677.3C780 680.7 840 657.3 870 645.2L900 633" fill="none" stroke="url(#gradient)" stroke-width="40" stroke-linecap="round" stroke-linejoin="miter"/>
+
+<path d="M0 726L30 736.3C60 746.7 120 765.3 180 767C240 768.7 300 745.3 360 730.8C420 716.3 480 709.7 540 722.3C600 734.7 660 765.7 720 769.3C780 772.7 840 749.3 870 737.2L900 725" fill="none" stroke="url(#gradient)" stroke-width="40" stroke-linecap="round" stroke-linejoin="miter"/>
+
+<path d="M0 818L30 828.3C60 838.7 120 857.3 180 859C240 860.7 300 837.3 360 822.8C420 808.3 480 801.7 540 814.3C600 826.7 660 857.7 720 861.3C780 864.7 840 841.3 870 829.2L900 817" fill="none" stroke="url(#gradient)" stroke-width="40" stroke-linecap="round" stroke-linejoin="miter"/>
+</svg>
