@@ -1,6 +1,6 @@
 export default function Skills() {
   return (
-    <>
+    <div className="z-10 w-full h-full flex items-center justify-center flex-col space-y-2 text-white">
       <h1 className="text-6xl tracking-widest font-bold animate-fadeIn">
         HUZAIFA JALIL
       </h1>
@@ -10,6 +10,6 @@ export default function Skills() {
       >
         FRONTEND DEVELOPER
       </h3>
-    </>
+    </div>
   );
 }

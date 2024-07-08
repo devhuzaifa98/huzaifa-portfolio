@@ -1,6 +1,6 @@
 export default function Contact() {
   return (
-    <>
+    <div className="z-10 w-full h-full flex items-center justify-center flex-col space-y-2 text-white">
       <h1 className="text-6xl tracking-widest font-bold animate-fadeIn">
         HUZAIFA JALIL CONTACT
       </h1>
@@ -10,6 +10,6 @@ export default function Contact() {
       >
         FRONTEND DEVELOPER
       </h3>
-    </>
+    </div>
   );
 }

@@ -15,10 +15,6 @@ export default function Footer() {
         }`}
       >
         CONTACT
-        <div
-          className="absolute -z-20 min-h-screen bottom-0 right-0 w-full w-0 border-r border-[#222222] animate-clip slower pointer-events-none"
-          style={{ animationDuration: ".5s" }}
-        ></div>
       </Link>
       <Link
         href={"/skills"}
@@ -29,10 +25,6 @@ export default function Footer() {
         }`}
       >
         SKILLS
-        <div
-          className="absolute -z-20 min-h-screen bottom-0 right-0 w-full w-0 border-r border-[#222222] animate-clip slower pointer-events-none"
-          style={{ animationDuration: ".8s" }}
-        ></div>
       </Link>
       <Link
         href={"resume"}
@@ -43,10 +35,6 @@ export default function Footer() {
         }`}
       >
         RESUME
-        <div
-          className="absolute -z-20 min-h-screen bottom-0 right-0 w-full w-0 border-r border-[#222222] animate-clip slower pointer-events-none"
-          style={{ animationDuration: "1s" }}
-        ></div>
       </Link>
       <Link
         href={"/"}

@@ -45,7 +45,7 @@ export default function CustomCursor() {
           mixBlendMode: iconState === "none" ? "difference" : "normal",
         }}
       ></div>
-      <Image
+      {/* <Image
         src={"/arrow-left.svg"}
         height={40}
         width={40}
@@ -60,7 +60,7 @@ export default function CustomCursor() {
           opacity: iconState === "none" ? 0 : 1,
         }}
         className="custom-cursor"
-      ></Image>
+      ></Image> */}
     </>
   );
 }
