@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 type IconState = "none" | "left" | "right";
 
 const isTextElement = (element: EventTarget | null): boolean => {
-  const textTags = ["P", "SPAN", "H1", "H2", "H3", "H4", "H5", "H6", "LABEL"];
+  const textTags = ["P", "H1", "H2", "H3", "H4", "H5", "H6", "LABEL"];
   return element instanceof HTMLElement && textTags.includes(element.tagName);
 };
 
@@ -45,7 +45,7 @@ export default function CustomCursor() {
           mixBlendMode: iconState === "none" ? "difference" : "normal",
         }}
       ></div>
-      {/* <Image
+      <Image
         src={"/arrow-left.svg"}
         height={40}
         width={40}
@@ -60,7 +60,7 @@ export default function CustomCursor() {
           opacity: iconState === "none" ? 0 : 1,
         }}
         className="custom-cursor"
-      ></Image> */}
+      ></Image>
     </>
   );
 }

@@ -68,6 +68,7 @@ const Wave: React.FC = () => {
       animate(false); // Start animation decreasing wave height
     }
   };
+
   useEffect(() => {
     const init = () => {
       if (!mount.current) return;
@@ -75,7 +76,7 @@ const Wave: React.FC = () => {
         alpha: true,
         antialias: true,
       });
-      renderer.current.setSize(400, 400); // Adjust as needed
+      renderer.current.setSize(200, 200); // Adjust as needed
 
       mount.current.appendChild(renderer.current.domElement);
 
@@ -88,28 +89,29 @@ const Wave: React.FC = () => {
         const shaderMat = new THREE.ShaderMaterial({
           uniforms: uniforms.current as any,
           vertexShader: `
-              uniform float uTime;
-              uniform float uWaveHeight;
-              varying vec2 vUv;
-    
-              void main() {
-                vUv = uv;
-                float calc = uWaveHeight * sin(position.x * 10.0 + uTime);
-                vec3 newPosition = position;
-                newPosition.z = position.z + calc;
-    
-                gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0);
-              }
-            `,
+            uniform float uTime;
+            uniform float uWaveHeight;
+            varying vec2 vUv;
+
+            void main() {
+              vUv = uv;
+              float calc = uWaveHeight * sin(position.x * 10.0 + uTime);
+              vec3 newPosition = position;
+              newPosition.z = position.z + calc;
+
+              gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0);
+            }
+          `,
           fragmentShader: `
-              uniform sampler2D uTexture;
-              varying vec2 vUv;
-    
-              void main() {
-                vec3 color = texture2D(uTexture, vUv).rgb;
+            uniform sampler2D uTexture;
+            varying vec2 vUv;
+
+            void main() {
+              vec3 color = texture2D(uTexture, vUv).rgb;
                 gl_FragColor = vec4(color, 1.0);
-              }
-            `,
+            }
+          `,
+          transparent: true,
         });
 
         const cube = new THREE.Mesh(geometry, shaderMat);
@@ -128,18 +130,10 @@ const Wave: React.FC = () => {
       }
     };
   }, []);
-//   if (!isLoaded) {
-//     // Show loading or placeholder image while Three.js scene is loading
-//     return (
-//       <div className="absolute right-0 top-0 translate -translate-x-[80%] translate-y-[40%] z-0">
-//         Loading...
-//       </div>
-//     );
-//   }
 
   return (
     <div
-      className="absolute right-0 bottom-0 translate translate-x-[36%] translate-y-[40%] z-0"
+      className="absolute left-0 top-0 translate -translate-x-[32%] -translate-y-[50%] z-0"
       ref={mount}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}

@@ -1,8 +1,8 @@
-<svg id="visual" viewBox="0 0 900 900" width="900" height="900" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+<svg id="visual" viewBox="0 0 900 900" width="900" height="900" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" style="background-color: transparent;">
   <defs>
     <linearGradient id="gradient" gradientTransform="rotate(0)">
-      <stop offset="0%" stop-color="#FF0066" />
-      <stop offset="100%" stop-color="#6600FF" />
+      <stop offset="0%" stop-color="#000000" />
+      <stop offset="100%" stop-color="#00cf7e" />
     </linearGradient>
   </defs>
   <path d="M0 258L30 268.3C60 278.7 120 297.3 180 299C240 300.7 300 277.3 360 262.8C420 248.3 480 241.7 540 254.3C600 266.7 660 297.7 720 301.3C780 304.7 840 281.3 870 269.2L900 257" fill="none" stroke="url(#gradient)" stroke-width="40" stroke-linecap="round" stroke-linejoin="miter"/>

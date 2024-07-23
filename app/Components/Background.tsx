@@ -1,7 +1,7 @@
 "use client";
 const Background = () => {
   return (
-    <div className="flex flex-row w-full h-full absolute z-0">
+    <div className="flex flex-row w-full h-full absolute -z-10">
       <span
         className="min-h-screen w-[25%] w-0 border-r border-[#222222] animate-clip slower pointer-events-none"
         style={{ animationDuration: ".5s" }}

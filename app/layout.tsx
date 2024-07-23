@@ -6,6 +6,7 @@ import Footer from "./Components/Footer";
 import Wave from "./Components/Wave";
 import SideBar from "./Components/SideBar";
 import Background from "./Components/Background";
+import { AnimatePresence } from "framer-motion";
 
 export const metadata = {
   metadataBase: new URL("https://postgres-prisma.vercel.app"),
@@ -33,7 +34,9 @@ export default function RootLayout({
           <SideBar />
           <div className="flex flex-col w-full relative">
             <Background />
-            {children}
+            <AnimatePresence mode="wait" initial={false}>
+              {children}
+            </AnimatePresence>
             <Footer />
           </div>
         </main>
