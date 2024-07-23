@@ -1,51 +1,50 @@
-"use client";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function Footer() {
-  const pathname = usePathname();
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
   return (
     <footer className="flex justify-evenly items-center text-shamrock-950 text-sm border-t border-[#222222]">
-      <Link
-        href={"/"}
+      <button
         className={`flex-1 py-8 text-center text-white ${
           pathname === "/"
             ? "bg-gradient-to-r from-shamrock-600 to-shamrock-200 text-shamrock-950"
             : "hover:bg-gradient-to-r from-shamrock-600 to-shamrock-200 hover:text-shamrock-950"
         }`}
+        onClick={() => navigate("/")}
       >
         HOME
-      </Link>
-      <Link
-        href={"/contact"}
+      </button>
+      <button
         className={`flex-1 py-8 text-center text-white ${
           pathname === "/contact"
             ? "bg-gradient-to-r from-shamrock-600 to-shamrock-200 text-shamrock-950"
             : "hover:bg-gradient-to-r from-shamrock-600 to-shamrock-200 hover:text-shamrock-950"
         }`}
+        onClick={() => navigate("/contact")}
       >
         CONTACT
-      </Link>
-      <Link
-        href={"resume"}
+      </button>
+      <button
         className={`flex-1 py-8 text-center text-white ${
           pathname === "/resume"
             ? "bg-gradient-to-r from-shamrock-600 to-shamrock-200 text-shamrock-950"
             : "hover:bg-gradient-to-r from-shamrock-600 to-shamrock-200 hover:text-shamrock-950"
         }`}
+        onClick={() => navigate("/resume")}
       >
         RESUME
-      </Link>
-      <Link
-        href={"/projects"}
+      </button>
+      <button
         className={`flex-1 py-8 text-center text-white ${
           pathname === "/projects"
             ? "bg-gradient-to-r from-shamrock-600 to-shamrock-200 text-shamrock-950"
             : "hover:bg-gradient-to-r from-shamrock-600 to-shamrock-200 hover:text-shamrock-950"
         }`}
+        onClick={() => navigate("/projects")}
       >
         ALL WORKS
-      </Link>
+      </button>
     </footer>
   );
 }

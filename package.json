@@ -1,41 +1,36 @@
 {
-  "name": "postgres-prisma",
-  "repository": "https://github.com/vercel/examples.git",
-  "license": "MIT",
-  "version": "0.0.0",
+  "name": "frontend",
   "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "dev": "prisma generate && next dev",
-    "build": "prisma generate && prisma db push && prisma db seed && next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "prisma": {
-    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "@prisma/client": "^5.4.1",
-    "@types/ms": "^0.7.32",
-    "@types/node": "20.8.3",
-    "@types/react": "18.2.25",
-    "@types/react-dom": "18.2.11",
-    "autoprefixer": "10.4.16",
-    "eslint": "8.51.0",
-    "eslint-config-next": "13.5.4",
-    "framer-motion": "^11.2.14",
-    "ms": "^2.1.3",
-    "next": "13.5.4",
-    "postcss": "8.4.31",
-    "prisma": "^5.4.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "framer-motion": "^11.3.9",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-feather": "^2.0.10",
-    "tailwindcss": "3.3.3",
-    "three": "^0.166.1",
-    "ts-node": "^10.9.1",
-    "typescript": "5.2.2"
+    "react-router-dom": "^6.25.1",
+    "three": "^0.166.1"
   },
   "devDependencies": {
-    "@types/three": "^0.166.0"
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@types/three": "^0.166.0",
+    "@typescript-eslint/eslint-plugin": "^7.15.0",
+    "@typescript-eslint/parser": "^7.15.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.19",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react-refresh": "^0.4.7",
+    "postcss": "^8.4.39",
+    "tailwindcss": "^3.4.6",
+    "typescript": "^5.2.2",
+    "vite": "^5.3.4"
   }
 }

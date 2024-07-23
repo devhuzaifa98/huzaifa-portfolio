@@ -1,4 +1,3 @@
-"use client";
 import { motion } from "framer-motion";
 import * as Icon from "react-feather";
 
@@ -26,7 +25,8 @@ export default function Contact() {
   return (
     <div className="z-10 w-full h-full flex items-center justify-center flex-col space-y-2 text-white">
       <motion.h1
-        initial={{ translateX: "-100%", opacity: 0 }}
+        initial={{ translateX: "-20%", opacity: 0 }}
+        exit={{ translateX: "-20%", opacity: 0 }}
         animate={{ translateX: "0%", opacity: 1 }}
         transition={{ duration: 0.2 }}
         className="text-5xl tracking-widest font-bold  w-1/2 text-center"
@@ -34,7 +34,8 @@ export default function Contact() {
         {"Get in Touch"}
       </motion.h1>
       <motion.h1
-        initial={{ translateX: "100%", opacity: 0 }}
+        initial={{ translateX: "20%", opacity: 0 }}
+        exit={{ translateX: "20%", opacity: 0 }}
         animate={{ translateX: "0%", opacity: 1 }}
         transition={{ duration: 0.2 }}
         className="text-2xl tracking-widest font-bold  w-1/2 text-center"
@@ -45,14 +46,22 @@ export default function Contact() {
         {Links.map((contact, i) => (
           <motion.button
             initial={{ translateY: "50%", opacity: 0 }}
-            animate={{ translateY: "0%", opacity: 1 }}
-            transition={{ duration: 0.2, delay: 0.2 + i * 0.1 }}
+            exit={{
+              translateY: "50%",
+              opacity: 0,
+              transition: { duration: 0.1, delay: 0.1 + i * 0.1 },
+            }}
+            animate={{
+              translateY: "0%",
+              opacity: 1,
+              transition: { duration: 0.2, delay: 0.2 + i * 0.1 },
+            }}
             onClick={() => window.open(contact.link)}
             key={i}
             className="flex-grow bg-[#161616] hover:bg-shamrock-300 hover:text-gray-900 rounded space-x-2 py-3 px-10 flex items-center justify-center"
           >
-              <contact.icon />
-              <span>{contact.text}</span>
+            <contact.icon />
+            <span>{contact.text}</span>
           </motion.button>
         ))}
       </div>

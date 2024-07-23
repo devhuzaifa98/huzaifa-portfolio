@@ -1,4 +1,3 @@
-"use client";
 // import Wave from "./Components/Wave";
 import { motion } from "framer-motion";
 
@@ -51,22 +50,21 @@ export default function Resume() {
 
   return (
     <div className="w-full h-full flex items-center justify-evenly lg:flex-row space-y-2 text-white flex-col">
-      {/* <Wave /> */}
-      <motion.section className="flex flex-col justify-center items-center h-full lg:w-1/2">
+      <motion.section
+        initial={{ translateX: "-100%", opacity: 0 }}
+        exit={{ translateX: "-100%", opacity: 1 }}
+        animate={{ translateX: "0%", opacity: 1 }}
+        transition={{ duration: 0.2 }}
+        className="flex flex-col justify-center items-center h-full lg:w-1/2"
+      >
         <img
           src={"/profile.png"}
           alt="profile_pic"
           className="rounded-full w-60"
         />
-        <motion.h1
-          // initial={{ translateX: "-100%", opacity: 0 }}
-          // // exit={{ translateX: "-100vw", opacity: 0 }}
-          // animate={{ translateX: "0%", opacity: 1 }}
-          // transition={{ duration: 0.2 }}
-          className="text-5xl tracking-widest font-bold my-5"
-        >
+        <h1 className="text-5xl tracking-widest font-bold my-5">
           HUZAIFA JALIL
-        </motion.h1>
+        </h1>
         <h1 className="text-2xl font-bold mb-2">About me</h1>
         <p className="tracking-widest text-[#a3a3a3] w-1/2 text-center">
           Full Stack Software Engineer with over five years of experience
@@ -77,10 +75,10 @@ export default function Resume() {
         </p>
       </motion.section>
       <motion.section
-        initial={{ translateY: "100%", opacity: 0 }}
-        // exit={{ translateX: "-100vw", opacity: 0 }}
-        animate={{ translateY: "0%", opacity: 1 }}
-        transition={{ duration: 0.2, delay: 0.1 }}
+        initial={{ translateX: "100%", opacity: 0 }}
+        exit={{ translateX: "100%", opacity: 0 }}
+        animate={{ translateX: "0%", opacity: 1 }}
+        transition={{ duration: 0.2}}
         className="lg:w-1/2 pr-20 pl-5"
       >
         <h1 className="text-2xl font-bold mb-2 mt-10">Skills</h1>
@@ -105,22 +103,6 @@ export default function Resume() {
           <span>Download Resume</span>
         </button>
       </motion.section>
-      {/* <motion.section
-          initial={{ translateY: "100%", opacity: 0 }}
-          // exit={{ translateX: "-100vw", opacity: 0 }}
-          animate={{ translateY: "0%", opacity: 1 }}
-          transition={{ duration: 0.2, delay: 0.2 }}
-        >
-          
-        </motion.section> */}
-      {/* <motion.div
-        initial={{ translateX: "100%", opacity: 0 }}
-        exit={{ translateX: "-100vw", opacity: 0 }}
-        animate={{ translateX: "0%", opacity: 1 }}
-        transition={{ duration: 0.2, delay: 0.2 }}
-      >
-        
-      </motion.div> */}
     </div>
   );
 }

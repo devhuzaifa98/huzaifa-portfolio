@@ -1,11 +1,10 @@
 "use client";
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect } from "react";
 import * as THREE from "three";
+import { motion } from "framer-motion";
 
 interface Uniforms {
-  uTime: THREE.IUniform<number>;
-  uWaveHeight: THREE.IUniform<number>;
-  uTexture: THREE.IUniform<THREE.Texture | null>;
+  [uniform: string]: THREE.IUniform<any>;
 }
 
 const Wave: React.FC = () => {
@@ -23,7 +22,7 @@ const Wave: React.FC = () => {
     uWaveHeight: { value: 0 },
     uTexture: { value: null },
   });
-  const [isLoaded, setIsLoaded] = useState(false);
+  // const [isLoaded, setIsLoaded] = useState(false);
 
   const animate = (isIncreasing: boolean) => {
     if (
@@ -87,7 +86,7 @@ const Wave: React.FC = () => {
         uniforms.current.uTexture.value = texture;
 
         const shaderMat = new THREE.ShaderMaterial({
-          uniforms: uniforms.current as any,
+          uniforms: uniforms.current,
           vertexShader: `
             uniform float uTime;
             uniform float uWaveHeight;
@@ -119,7 +118,7 @@ const Wave: React.FC = () => {
         scene.current.add(cube);
         camera.current.position.z = 1.3;
         renderer?.current?.render(scene.current, camera.current);
-        setIsLoaded(true);
+        // setIsLoaded(true);
       });
     };
     init();
@@ -132,12 +131,16 @@ const Wave: React.FC = () => {
   }, []);
 
   return (
-    <div
-      className="absolute left-0 top-0 translate -translate-x-[32%] -translate-y-[50%] z-0"
+    <motion.div
+      className="absolute left-0 top-0 z-0"
       ref={mount}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-    ></div>
+      initial={{ translateX: "-100%", translateY: "-50%", opacity: 0 }}
+      exit={{ translateX: "-100vw", opacity: 0 }}
+      animate={{ translateX: "-32%", opacity: 1 }}
+      transition={{ duration: 0.2 }}
+    ></motion.div>
   );
 };
 
