@@ -1,17 +1,18 @@
 import { useEffect, useState } from "react";
+import { ArrowLeft, ArrowRight } from "react-feather";
 import { useLocation } from "react-router-dom";
 
 type IconState = "none" | "left" | "right";
 
 const isTextElement = (element: EventTarget | null): boolean => {
-  const textTags = ["P", "H1", "H2", "H3", "H4", "H5", "H6", "LABEL"];
+  const textTags = ["P", "H1", "H2", "H3", "H4", "H5", "H6", "LABEL", "SPAN", "A"];
   return element instanceof HTMLElement && textTags.includes(element.tagName);
 };
 
 export default function CustomCursor() {
   const location = useLocation();
-  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
-  const [iconState, setIconState] = useState<IconState>("none");
+  const [cursorPosition, setCursorPosition] = useState({ x: -50, y: -50 });
+  const [iconState, setIconState] = useState<IconState>("left");
   useEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
       setCursorPosition({ x: event.clientX, y: event.clientY });
@@ -33,10 +34,12 @@ export default function CustomCursor() {
     };
   }, []);
 
+  const ArrowIcon = iconState === "left" ? ArrowLeft : ArrowRight;
+
   return (
     <>
       <div
-        className="border-2 w-10 h-10 border-white rounded-full fixed z-40 cursor-none -translate-x-1/2 -translate-y-1/2 pointer-events-none flex justify-center items-center"
+        className="border-2 w-10 h-10 border-white rounded-full fixed z-50  pointer-events-none hidden lg:flex justify-center items-center -translate-x-1/2 -translate-y-1/2"
         style={{
           top: `${cursorPosition.y}px`,
           left: `${cursorPosition.x}px`,
@@ -49,21 +52,16 @@ export default function CustomCursor() {
         )}
       </div>
       {location.pathname === "/projects" && (
-        <img
-          src={"/arrow-left.svg"}
+        <ArrowIcon
           height={40}
           width={40}
-          alt="cursor"
+          color="white"
           style={{
             top: `${cursorPosition.y}px`,
             left: `${cursorPosition.x}px`,
-            transform:
-              iconState === "left"
-                ? "translate(-50%, -50%)"
-                : "scaleX(-1) translate(50%,-50%)",
             opacity: iconState === "none" ? 0 : 1,
           }}
-          className="fixed duration-100 z-50 pointer-events-none"
+          className="fixed lg:block hidden duration-100 z-50 pointer-events-none -translate-x-1/2 -translate-y-1/2"
         />
       )}
     </>

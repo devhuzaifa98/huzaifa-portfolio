@@ -8,16 +8,17 @@ import SideBar from "./components/SideBar";
 import Background from "./components/Background";
 import { AnimatePresence } from "framer-motion";
 import Footer from "./components/Footer";
+import { NotFound } from "./pages/404";
 
 function App() {
   const location = useLocation();
 
   const key = location.pathname;
   return (
-    <main className="min-h-screen flex flex-row bg-black">
+    <main className="min-h-screen lg:max-h-screen flex flex-row bg-black">
       <CustomCursor />
       <SideBar />
-      <div className="flex flex-col w-full relative overflow-hidden">
+      <div className="flex flex-col-reverse lg:flex-col w-full relative lg:overflow-hidden">
         <Background />
         <AnimatePresence mode="wait">
           <Routes location={location} key={key}>
@@ -25,6 +26,7 @@ function App() {
             <Route path="/contact" Component={Contact} />
             <Route path="/resume" Component={Resume} />
             <Route path="/projects" Component={Projects} />
+            <Route path="*" Component={NotFound} />
           </Routes>
         </AnimatePresence>
         <Footer />

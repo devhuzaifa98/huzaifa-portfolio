@@ -11,6 +11,10 @@ export default {
           "0%": { clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)" },
           "100%": { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" },
         },
+        "clip-mobile": {
+          "0%": { clipPath: "polygon(100% 0, 0 0, 0 0, 100% 0)" },
+          "100%": { clipPath: "polygon(100% 0, 100% 0, 100% 100%, 0 100%)" },
+        },
         fadeIn: {
           "0%": { opacity: 0 },
           "100%": { opacity: 1 },
@@ -18,6 +22,7 @@ export default {
       },
       animation: {
         clip: "clip 1s ease-in-out forwards",
+        "clip-mobile": "clip-mobile 1s ease-in-out forwards",
         fadeIn: "fadeIn 1s ease-in-out forwards",
       },
       colors: {
@@ -34,6 +39,10 @@ export default {
           900: "#00573b",
           950: "#003123",
         },
+        border: "#222222",
+        secondary: "#545454",
+        tertiary: "#161616",
+        text: "#a3a3a3",
       },
     },
   },

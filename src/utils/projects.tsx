@@ -1,7 +1,9 @@
 export interface ProjectData {
   name: string;
+  image: string;
+  url: string;
   location?: string;
-  dates: string;
+  date: string;
   position: string;
   description?: string;
   responsibilities: string[];
@@ -10,8 +12,10 @@ export interface ProjectData {
 export const ProjectData: ProjectData[] = [
   {
     name: "Bosley.ai",
+    image: "/bosley.png",
+    url: "https://app.bosley.ai/",
     location: "USA",
-    dates: "Dec 2023 – Present",
+    date: "Dec 2023 – Present",
     position: "Sr. Software Engineer Full Stack",
     description:
       "Bosley.ai is an innovative AI-driven solution designed for restaurants, allowing customers to send inquiries and place orders via call and text messaging.",
@@ -26,8 +30,10 @@ export const ProjectData: ProjectData[] = [
   },
   {
     name: "Permission.io",
+    image: "/permission.png",
+    url: "https://permission.io/",
     location: "Zug, Switzerland",
-    dates: "Oct 2022 – Nov 2023",
+    date: "Oct 2022 – Nov 2023",
     position: "Sr. Software Engineer Full Stack (MERN)",
     description:
       "WEB3 advertising, connecting brands & consumers through crypto rewards.",
@@ -47,7 +53,9 @@ export const ProjectData: ProjectData[] = [
   },
   {
     name: "Factiiii",
-    dates: "Feb 2021 – Sep 2022",
+    image: "/factiii.png",
+    url: "https://factiii.com/",
+    date: "Feb 2021 – Sep 2022",
     position: "Sr. Software Engineer Full Stack (MERN)",
     description:
       "A community building platform aimed to deliver reliable, unbiased information that stems from authentic sources.",
@@ -66,7 +74,9 @@ export const ProjectData: ProjectData[] = [
   },
   {
     name: "Duke Leads FZCO",
-    dates: "Oct 2019 – Jan 2021",
+    image: "/duke-leads.png",
+    url: "https://dukeleads.com/",
+    date: "Oct 2019 – Jan 2021",
     position: "Software Engineer Full Stack (Vue.js)",
     description:
       "Developed one of the largest marketplaces for the smartphone industry.",
@@ -79,7 +89,9 @@ export const ProjectData: ProjectData[] = [
   },
   {
     name: "Virtual Totem",
-    dates: "Nov 2018 – Sep 2019",
+    image: "/virtual-totem.png",
+    url: "https://store.totemteam.com/",
+    date: "Nov 2018 – Sep 2019",
     position: "Software Engineer Full Stack",
     description: "Web app offering a team building activity.",
     responsibilities: [

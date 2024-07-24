@@ -123,21 +123,25 @@ const Wave: React.FC = () => {
     };
     init();
 
+    const animator = document.getElementById("wave-animator");
+    animator?.addEventListener("mouseenter", handleMouseEnter);
+    animator?.addEventListener("mouseleave", handleMouseLeave);
+
     return () => {
       if (animId.current !== undefined) {
         cancelAnimationFrame(animId.current);
       }
+      animator?.removeEventListener("mouseenter", handleMouseEnter);
+      animator?.removeEventListener("mouseleave", handleMouseLeave);
     };
   }, []);
 
   return (
     <motion.div
-      className="absolute left-0 top-0 z-0"
+      className="absolute left-0 top-0 z-0 hidden lg:block"
       ref={mount}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      initial={{ translateX: "-100%", translateY: "-50%", opacity: 0 }}
-      exit={{ translateX: "-100vw", opacity: 0 }}
+      initial={{ translateX: "-20%", translateY: "-50%", opacity: 0 }}
+      exit={{ translateX: "-20%", opacity: 0 }}
       animate={{ translateX: "-32%", opacity: 1 }}
       transition={{ duration: 0.2 }}
     ></motion.div>

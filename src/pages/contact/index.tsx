@@ -1,50 +1,34 @@
 import { motion } from "framer-motion";
-import * as Icon from "react-feather";
-
-type Links = { text: string; link: string; icon: React.FC }[];
+import { Links } from "../../utils/links";
 
 export default function Contact() {
-  const Links: Links = [
-    {
-      text: "devhuzaifa98",
-      icon: Icon.GitHub,
-      link: "https://github.com/devhuzaifa98",
-    },
-    {
-      text: "Huzaifa Jalil",
-      icon: Icon.Linkedin,
-      link: "https://www.linkedin.com/in/huzaifa-jalil/",
-    },
-    {
-      text: "huzaiffajalil@gmail.com",
-      icon: Icon.Mail,
-      link: "mailto:huzaiffajalil@gmail.com",
-    },
-    { text: "+9212345678910", icon: Icon.Phone, link: "tel:9212345678910" },
-  ];
   return (
-    <div className="z-10 w-full h-full flex items-center justify-center flex-col space-y-2 text-white">
-      <motion.h1
-        initial={{ translateX: "-20%", opacity: 0 }}
-        exit={{ translateX: "-20%", opacity: 0 }}
-        animate={{ translateX: "0%", opacity: 1 }}
-        transition={{ duration: 0.2 }}
-        className="text-5xl tracking-widest font-bold  w-1/2 text-center"
-      >
-        {"Get in Touch"}
-      </motion.h1>
-      <motion.h1
-        initial={{ translateX: "20%", opacity: 0 }}
-        exit={{ translateX: "20%", opacity: 0 }}
-        animate={{ translateX: "0%", opacity: 1 }}
-        transition={{ duration: 0.2 }}
-        className="text-2xl tracking-widest font-bold  w-1/2 text-center"
-      >
-        {"Let's Create Something Amazing Together!"}
-      </motion.h1>
-      <div className="flex flex-row space-x-10 !mt-10">
+    <div className="z-10 w-full h-full flex items-center justify-center flex-col space-y-5 text-white text-center p-5">
+      {/* Heading */}
+      <section>
+        <motion.h1
+          initial={{ translateX: "-20%", opacity: 0 }}
+          exit={{ translateX: "-20%", opacity: 0 }}
+          animate={{ translateX: "0%", opacity: 1 }}
+          transition={{ duration: 0.2 }}
+          className="text-4xl lg:text-6xl tracking-widest font-bold"
+        >
+          {"Get in Touch"}
+        </motion.h1>
+        <motion.h1
+          initial={{ translateX: "20%", opacity: 0 }}
+          exit={{ translateX: "20%", opacity: 0 }}
+          animate={{ translateX: "0%", opacity: 1 }}
+          transition={{ duration: 0.2 }}
+          className="lg:text-2xl tracking-widest text-center text-text"
+        >
+          {"Let's Create Something Amazing Together!"}
+        </motion.h1>
+      </section>
+      {/* Contact Cards */}
+      <section className="flex flex-col gap-x-10 flex-wrap lg:flex-row gap-y-2">
         {Links.map((contact, i) => (
-          <motion.button
+          <motion.a
             initial={{ translateY: "50%", opacity: 0 }}
             exit={{
               translateY: "50%",
@@ -56,15 +40,15 @@ export default function Contact() {
               opacity: 1,
               transition: { duration: 0.2, delay: 0.2 + i * 0.1 },
             }}
-            onClick={() => window.open(contact.link)}
+            href={contact.link}
             key={i}
-            className="flex-grow bg-[#161616] hover:bg-shamrock-300 hover:text-gray-900 rounded space-x-2 py-3 px-10 flex items-center justify-center"
+            className="flex-grow bg-tertiary hover:bg-shamrock-300 hover:text-tertiary rounded gap-x-2 py-3 px-10 flex items-center justify-center"
           >
             <contact.icon />
-            <span>{contact.text}</span>
-          </motion.button>
+            {contact.text}
+          </motion.a>
         ))}
-      </div>
+      </section>
     </div>
   );
 }
